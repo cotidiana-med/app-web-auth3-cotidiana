@@ -72,7 +72,7 @@
     </v-form>
 
     <v-divider class="mt-3 mb-2" />
-
+    <!--
     <router-link
       :to="{ name: 'RegisterUser' }"
     ><h3>Create an account</h3></router-link
@@ -87,7 +87,7 @@
       :to="{ name: 'ChangePassword' }"
     ><h3>Change password</h3></router-link
     >
-
+    -->
     <Alerts :errorMsg="error" />
   </div>
 </template>
