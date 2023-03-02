@@ -38,6 +38,7 @@ class Context {
     if (queryParams != null && queryParams.oauthState != null) {
       this.accessState = {
         oaccessState: queryParams.oauthState,
+        basePatientId: '',
       };
     }
 
@@ -64,7 +65,10 @@ class Context {
       await this.loadAccessState();
       this.pryvService.setServiceInfo(this.accessState.serviceInfo);
     }
-    await this.pryvService.info();
+    const infos = await this.pryvService.info();
+    this.accessState.basePatientId = infos.assets.basePatientId || '';
+    console.log('Pryv Service Info', infos);
+    return infos;
   }
 
   isAccessRequest (): boolean {

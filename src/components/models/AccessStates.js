@@ -24,6 +24,7 @@ export type AccessState = {
   poll?: string,
   pollKey?: string, // why is this still here?
   oaccessState?: string,
+  basePatientId?: string,
   expireAfter?: number, // to be added
   deviceName?: string, // to be added
   referer?: string, // to be added

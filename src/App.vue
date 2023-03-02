@@ -13,6 +13,7 @@
             :src="logoSrcUrl"
             height="50px">
           <router-view/>
+          <span><b>{{ ctx.accessState.basePatientId }}</b></span>
         </v-container>
       </v-content>
     </v-app>

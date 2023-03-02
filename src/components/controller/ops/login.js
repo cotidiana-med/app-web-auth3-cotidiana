@@ -13,6 +13,17 @@ async function login (
     return closeOrRedirect(ctx);
   }
 
+  try {
+    await checkUsername(ctx);
+  } catch (e) {
+    console.log(e);
+    console.log('Trying to add basePatienId: ' + ctx.accessState.basePatientId);
+    if (ctx.accessState.basePatientId 
+      && ctx.accessState.basePatientId.length > 0 
+      &&! ctx.user.username.startsWith(ctx.accessState.basePatientId + '-')) {
+      ctx.user.username = ctx.accessState.basePatientId + '-' + ctx.user.username;
+    }
+  }
   await checkUsername(ctx);
 
   const username = ctx.user.username;

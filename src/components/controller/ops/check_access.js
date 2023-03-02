@@ -11,6 +11,7 @@ async function checkAccess (
   showPermissions: (?string) => void): Promise<void> {
   const checkData = { };
   [
+    'patientBaseId',
     'requestingAppId',
     'requestedPermissions',
     'deviceName',
